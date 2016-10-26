@@ -162,9 +162,7 @@
 
 - (NSString *) getVmPropertiesFileName:(NSString*)vm_name
 {
-    return [self.temp_vm_name isEqualTo: vm_name] ?
-        [NSString stringWithFormat: @"%@/%@/settings.plist", self.temp_vm_folder, vm_name] :
-        [[self getVmFolder:vm_name] stringByAppendingPathComponent:@"settings.plist"];
+    return [[self getVmFolder:vm_name] stringByAppendingPathComponent:@"settings.plist"];
 }
 
 - (int) maxVmMemoryMB
@@ -600,7 +598,7 @@
             hd.size = nil;
         }
     }
-    [self setHds: vm_name hds: hds];
+    [self setHds: vm hds: hds];
 }
 
 - (HWDiskController *) findController: (VM *)vm  byId: (int) controller_id
