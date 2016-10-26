@@ -1,0 +1,301 @@
+
+DEFHEADING(Standard options:)
+
+DEF("help", 0, QEMU_OPTION_h,
+"", QEMU_ARCH_ALL)
+
+DEF("version", 0, QEMU_OPTION_version,
+"", QEMU_ARCH_ALL)
+
+DEF("machine", HAS_ARG, QEMU_OPTION_machine, \
+"", QEMU_ARCH_ALL)
+
+DEF("M", HAS_ARG, QEMU_OPTION_M, "", QEMU_ARCH_ALL)
+
+DEF("cpu", HAS_ARG, QEMU_OPTION_cpu,
+"", QEMU_ARCH_ALL)
+
+DEF("smp", HAS_ARG, QEMU_OPTION_smp,
+"", QEMU_ARCH_ALL)
+
+DEF("numa", HAS_ARG, QEMU_OPTION_numa,
+"", QEMU_ARCH_ALL)
+
+DEF("add-fd", HAS_ARG, QEMU_OPTION_add_fd,
+"", QEMU_ARCH_ALL)
+
+DEF("set", HAS_ARG, QEMU_OPTION_set,
+"", QEMU_ARCH_ALL)
+
+DEF("global", HAS_ARG, QEMU_OPTION_global,
+"", QEMU_ARCH_ALL)
+
+DEF("boot", HAS_ARG, QEMU_OPTION_boot,
+"", QEMU_ARCH_ALL)
+
+DEF("m", HAS_ARG, QEMU_OPTION_m,
+"", QEMU_ARCH_ALL)
+
+DEF("mem-path", HAS_ARG, QEMU_OPTION_mempath,
+"", QEMU_ARCH_ALL)
+
+DEF("mem-prealloc", 0, QEMU_OPTION_mem_prealloc,
+"", QEMU_ARCH_ALL)
+
+DEF("k", HAS_ARG, QEMU_OPTION_k,
+"", QEMU_ARCH_ALL)
+
+DEF("device", HAS_ARG, QEMU_OPTION_device,
+"", QEMU_ARCH_ALL)
+
+DEF("name", HAS_ARG, QEMU_OPTION_name,
+"", QEMU_ARCH_ALL)
+
+DEF("uuid", HAS_ARG, QEMU_OPTION_uuid,
+"", QEMU_ARCH_ALL)
+
+DEFHEADING()
+
+DEFHEADING(Block device options:)
+
+DEF("fda", HAS_ARG, QEMU_OPTION_fda,
+"-fda/-fdb file  use 'file' as floppy disk 0/1 image\n", QEMU_ARCH_ALL)
+DEF("fdb", HAS_ARG, QEMU_OPTION_fdb, "", QEMU_ARCH_ALL)
+
+DEF("hda", HAS_ARG, QEMU_OPTION_hda,
+"", QEMU_ARCH_ALL)
+DEF("hdb", HAS_ARG, QEMU_OPTION_hdb, "", QEMU_ARCH_ALL)
+DEF("hdc", HAS_ARG, QEMU_OPTION_hdc,
+"", QEMU_ARCH_ALL)
+DEF("hdd", HAS_ARG, QEMU_OPTION_hdd, "", QEMU_ARCH_ALL)
+
+DEF("cdrom", HAS_ARG, QEMU_OPTION_cdrom,
+"", QEMU_ARCH_ALL)
+
+DEF("drive", HAS_ARG, QEMU_OPTION_drive,
+"", QEMU_ARCH_ALL)
+
+DEF("mtdblock", HAS_ARG, QEMU_OPTION_mtdblock,
+"", QEMU_ARCH_ALL)
+
+DEF("sd", HAS_ARG, QEMU_OPTION_sd,
+"", QEMU_ARCH_ALL)
+
+DEF("pflash", HAS_ARG, QEMU_OPTION_pflash,
+"", QEMU_ARCH_ALL)
+
+DEF("snapshot", 0, QEMU_OPTION_snapshot,
+"", QEMU_ARCH_ALL)
+
+DEF("hdachs", HAS_ARG, QEMU_OPTION_hdachs, \
+"", QEMU_ARCH_ALL)
+
+DEF("fsdev", HAS_ARG, QEMU_OPTION_fsdev,
+"", QEMU_ARCH_ALL)
+
+
+DEF("virtfs", HAS_ARG, QEMU_OPTION_virtfs,
+"", QEMU_ARCH_ALL)
+
+
+DEF("virtfs_synth", 0, QEMU_OPTION_virtfs_synth,
+"", QEMU_ARCH_ALL)
+
+DEFHEADING()
+
+DEFHEADING(USB options:)
+
+DEF("usb", 0, QEMU_OPTION_usb,
+"", QEMU_ARCH_ALL)
+
+DEF("usbdevice", HAS_ARG, QEMU_OPTION_usbdevice,
+"", QEMU_ARCH_ALL)
+
+DEFHEADING()
+
+DEFHEADING(Display options:)
+
+DEF("display", HAS_ARG, QEMU_OPTION_display,
+"", QEMU_ARCH_ALL)
+
+DEF("nographic", 0, QEMU_OPTION_nographic,
+"", QEMU_ARCH_ALL)
+
+DEF("vga", HAS_ARG, QEMU_OPTION_vga,
+"", QEMU_ARCH_ALL)
+
+DEF("vnc", HAS_ARG, QEMU_OPTION_vnc ,
+"", QEMU_ARCH_ALL)
+
+ARCHHEADING(, QEMU_ARCH_I386)
+
+ARCHHEADING(i386 target only:, QEMU_ARCH_I386)
+
+DEF("no-fd-bootchk", 0, QEMU_OPTION_no_fd_bootchk,
+"", QEMU_ARCH_I386)
+
+DEF("no-acpi", 0, QEMU_OPTION_no_acpi,
+"", QEMU_ARCH_I386)
+
+DEF("no-hpet", 0, QEMU_OPTION_no_hpet,
+"", QEMU_ARCH_I386)
+
+DEF("no-hyperv", 0, QEMU_OPTION_no_hyperv,
+"", QEMU_ARCH_I386)
+
+DEF("acpitable", HAS_ARG, QEMU_OPTION_acpitable,
+"", QEMU_ARCH_I386)
+
+DEF("smbios", HAS_ARG, QEMU_OPTION_smbios,
+"", QEMU_ARCH_I386)
+
+DEFHEADING()
+
+DEFHEADING(Network options:)
+
+#ifdef CONFIG_SLIRP
+DEF("tftp", HAS_ARG, QEMU_OPTION_tftp, "", QEMU_ARCH_ALL)
+DEF("bootp", HAS_ARG, QEMU_OPTION_bootp, "", QEMU_ARCH_ALL)
+DEF("redir", HAS_ARG, QEMU_OPTION_redir, "", QEMU_ARCH_ALL)
+#ifndef _WIN32
+DEF("smb", HAS_ARG, QEMU_OPTION_smb, "", QEMU_ARCH_ALL)
+#endif
+#endif
+
+DEF("net", HAS_ARG, QEMU_OPTION_net,
+"", QEMU_ARCH_ALL)
+DEF("netdev", HAS_ARG, QEMU_OPTION_netdev,
+"", QEMU_ARCH_ALL)
+
+DEFHEADING()
+
+DEFHEADING(Character device options:)
+
+DEF("chardev", HAS_ARG, QEMU_OPTION_chardev,
+"", QEMU_ARCH_ALL)
+
+DEFHEADING()
+
+DEFHEADING(Device URL Syntax:)
+DEF("iscsi", HAS_ARG, QEMU_OPTION_iscsi,
+"", QEMU_ARCH_ALL)
+
+DEFHEADING(Linux/Multiboot boot specific:)
+
+DEF("kernel", HAS_ARG, QEMU_OPTION_kernel, \
+"", QEMU_ARCH_ALL)
+
+DEF("append", HAS_ARG, QEMU_OPTION_append, \
+"", QEMU_ARCH_ALL)
+
+DEF("initrd", HAS_ARG, QEMU_OPTION_initrd, \
+"", QEMU_ARCH_ALL)
+
+DEF("dtb", HAS_ARG, QEMU_OPTION_dtb, \
+"", QEMU_ARCH_ALL)
+
+DEFHEADING()
+
+DEFHEADING(Debug/Expert options:)
+
+DEF("serial", HAS_ARG, QEMU_OPTION_serial, \
+"", QEMU_ARCH_ALL)
+
+DEF("parallel", HAS_ARG, QEMU_OPTION_parallel, \
+"", QEMU_ARCH_ALL)
+
+DEF("monitor", HAS_ARG, QEMU_OPTION_monitor, \
+"", QEMU_ARCH_ALL)
+DEF("qmp", HAS_ARG, QEMU_OPTION_qmp, \
+"", QEMU_ARCH_ALL)
+DEF("qmp-pretty", HAS_ARG, QEMU_OPTION_qmp_pretty, \
+"", QEMU_ARCH_ALL)
+
+DEF("mon", HAS_ARG, QEMU_OPTION_mon, \
+"", QEMU_ARCH_ALL)
+
+DEF("debugcon", HAS_ARG, QEMU_OPTION_debugcon, \
+"", QEMU_ARCH_ALL)
+
+DEF("pidfile", HAS_ARG, QEMU_OPTION_pidfile, \
+"", QEMU_ARCH_ALL)
+
+DEF("singlestep", 0, QEMU_OPTION_singlestep, \
+"", QEMU_ARCH_ALL)
+
+DEF("S", 0, QEMU_OPTION_S, \
+"", QEMU_ARCH_ALL)
+
+DEF("realtime", HAS_ARG, QEMU_OPTION_realtime,
+"", QEMU_ARCH_ALL)
+
+DEF("gdb", HAS_ARG, QEMU_OPTION_gdb, \
+"", QEMU_ARCH_ALL)
+
+DEF("s", 0, QEMU_OPTION_s, \
+"", QEMU_ARCH_ALL)
+
+DEF("d", HAS_ARG, QEMU_OPTION_d, \
+"", QEMU_ARCH_ALL)
+
+DEF("D", HAS_ARG, QEMU_OPTION_D, \
+"", QEMU_ARCH_ALL)
+
+DEF("L", HAS_ARG, QEMU_OPTION_L, \
+"", QEMU_ARCH_ALL)
+
+DEF("bios", HAS_ARG, QEMU_OPTION_bios, \
+"", QEMU_ARCH_ALL)
+
+DEF("no-reboot", 0, QEMU_OPTION_no_reboot, \
+"", QEMU_ARCH_ALL)
+
+DEF("no-shutdown", 0, QEMU_OPTION_no_shutdown, \
+"", QEMU_ARCH_ALL)
+
+DEF("loadvm", HAS_ARG, QEMU_OPTION_loadvm, \
+"", QEMU_ARCH_ALL)
+
+DEF("loadvm2", HAS_ARG, QEMU_OPTION_loadvm2, \
+"", QEMU_ARCH_ALL)
+
+DEF("enable-vmx", 0, QEMU_OPTION_enable_vmx, \
+"", QEMU_ARCH_ALL)
+
+DEF("option-rom", HAS_ARG, QEMU_OPTION_option_rom, \
+"", QEMU_ARCH_ALL)
+
+DEF("clock", HAS_ARG, QEMU_OPTION_clock, "", QEMU_ARCH_ALL)
+
+DEF("localtime", 0, QEMU_OPTION_localtime, "", QEMU_ARCH_ALL)
+DEF("startdate", HAS_ARG, QEMU_OPTION_startdate, "", QEMU_ARCH_ALL)
+
+DEF("rtc", HAS_ARG, QEMU_OPTION_rtc, \
+"",
+QEMU_ARCH_ALL)
+
+DEF("nodefaults", 0, QEMU_OPTION_nodefaults, \
+"", QEMU_ARCH_ALL)
+
+DEF("nodefconfig", 0, QEMU_OPTION_nodefconfig,
+"", QEMU_ARCH_ALL)
+
+DEF("no-user-config", 0, QEMU_OPTION_nouserconfig,
+"", QEMU_ARCH_ALL)
+DEF("trace", HAS_ARG, QEMU_OPTION_trace,
+"", QEMU_ARCH_ALL)
+
+DEF("object", HAS_ARG, QEMU_OPTION_object,
+"", QEMU_ARCH_ALL)
+
+DEF("msg", HAS_ARG, QEMU_OPTION_msg,
+"", QEMU_ARCH_ALL)
+
+DEF("dump-vmstate", HAS_ARG, QEMU_OPTION_dump_vmstate,
+"", QEMU_ARCH_ALL)
+
+DEF("expose-hyperv", 0, QEMU_OPTION_expose_hyperv,
+"", QEMU_ARCH_ALL)
+
+DEF("port_fwd", HAS_ARG, QEMU_OPTION_port_fwd,
+"", QEMU_ARCH_ALL)

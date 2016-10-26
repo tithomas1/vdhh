@@ -1,0 +1,56 @@
+/* 
+  Strings.strings
+  vmx
+
+*/
+
+"VMLIB_INIT_FAIL"="Failed to initialize VM Library";
+"VM_CANNOT_EDIT"="VM cannot be modified while being paused";
+"VM_LOCKED"="Please shutdown the VM in order to allow editing";
+"Close"="Close";
+"Quit"="Quit";
+"Cancel"="Cancel";
+"Continue"="Continue";
+"NOT_ENOUGH_SPACE"="There's not enough space on the disk to create a VM. Do you still want to continue?";
+"NOT_ENOUGH_SPACE_MSG"="The disk space for this VM is allocated on demand. Once you run out of disk space, the VM might stop working";
+"FAILED_TO_ADD_CD"="Failed to add a new optical disk";
+"NO_IDE_SLOTS"="Cannot atach more than 4 devices to an IDE bus. Please add a new SCSI controller";
+"NO_IDE_SLOTS2"="Cannot atach more than 4 devices to an IDE bus";
+"IRREVERSIBLE"="If you choose Delete, the disk data will be permanently lost";
+"DELETE_DISK_MSG"="Are you sure you want to delete the disk?";
+"DELETE_DISK"="Delete Disk";
+"FAILED_TO_LAUNCH_VM"="Failed to launch VM";
+"INVALID_DISK_SIZE"="Cannot create a new hard disk because of invalid size";
+"IMG_CREATE_FAILURE"="Failed to create a new hard disk. Make sure you have enough free space";
+"CANNOT_DELETE_CONTROLLER"="Cannot delete controller";
+"DELETE_CONTROLLER_ERR"="The SCSI controller has attached devices. Please detach them first";
+"CANNOT_CHANGE_CONTROLLER"="Cannot change controller";
+"SURE_TO_DELETE"="Are you sure you want to delete this VM?";
+"DELETE_MSG"="If you choose Delete, the Virtual Machine and all its data will be permananelty erased from the disk";
+"DELETE_VM"="Delete This VM";
+"FIRST_VIEW_DESC"="Download and run a VM from our cloud library or create your own VM (Windows 10, Windows 8, custom Linux, etc.)";
+"CHOOSE_ISO_DESC"="Specify VM name and installation media which can be either optical drive on your Mac or an .ISO image file containing the setup";
+"CHOOSE_OS_DESC"="Select an Operating System family and type you're installing. If you your OS is not in the list choose Other";
+"CUSTOMIZE_DESC"="Please review the settings of your new VM. Press 'Launch VM' to create the VM and run the installation process";
+"CHOOSE_WEB_IMG_DESC"="Please select a VM image you wish to download from our Web site and click Next";
+"CANCEL_DOWNLOAD"="Press Cancel to stop the download and return to image list";
+"DOWNLOAD_FAILED"="Download failed";
+"HV_FAILED"="Failed to initialize Hypervisor Framework";
+"HV_FAILED_INFO"="This app requires a Mac from mid 2010 or newer. The app will now quit.";
+"EXPORTING"="Exporting VM...";
+"ISO_IMAGE"=".ISO image file or optical drive";
+"VM_IMAGE"="Pick VM Image directory and then file";
+"CHOOSE_IMPORT_DESC"="Pick an exisiting VM image directory and file which can be in one of the following formats: OVA, VMDK, PVM, HDS or RAW";
+"CANCEL_CONVERT"="Press Cancel to stop conversion";
+"FAILED_FIND_IMG"="Failed to locate VM disk image";
+"VMLIB_ACCESS_DENIED"="Cannot access VM Library folder";
+"VMLIB_ACCESS_DENIED_INFO"="From Menu/Preferences choose the location of VM Library folder";
+"NEWER_TOOLS_AVAIL"="Newer Guest Add-Ons available";
+"NEWER_TOOLS_INFO"="We have detected an older version of guest add-ons installed on this VM. Please upgrade to a newer version";
+"CANNOT_IMPORT"="Cannot Import";
+"NO_IMPORT_FILES"="The directory you've picked doesn't contain valid import candidates";
+"CONT_IMPORT"="VM Import";
+"MULT_IMPORT"="Multiple import candidates have been found. Press 'Continue' and select a specific image";
+"ABOUT_FMT"="<b><font size=\"6\">%@</font></b><br><br>Version %@<br><br>For information on Veertu, visit <a href=\"%@\">veertu.com</a><br> and follow us on twitter <a href=\"http://twitter.com/veertu_labs\">@veertu_labs</a><br><br>Please <a href=\"https://itunes.apple.com/app/veertu/id1082458124\">rate us</a> in the App Store";
+"QUITE_TITLE"="Do you want to quit?";
+"QUITE_MSG"="When you quit Veertu all your running VMs will be paused";

@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1493FDC1DA15BED008BDF70 /* vsystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1493FD61DA156A6008BDF70 /* vsystem.cpp */; };
+		A1493FDF1DA15DEB008BDF70 /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CCA1D90326800BACA7C /* log.cpp */; };
+		A1493FE01DA15DF2008BDF70 /* vmsg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CB91D8FF5C500BACA7C /* vmsg.cpp */; };
+		A1493FE11DA15DF7008BDF70 /* vobj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CBB1D8FF5C500BACA7C /* vobj.cpp */; };
+		A1F13CD51D9112CD00BACA7C /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CCA1D90326800BACA7C /* log.cpp */; };
+		A1F13CD71D9112CD00BACA7C /* vmsg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CB91D8FF5C500BACA7C /* vmsg.cpp */; };
+		A1F13CD81D9112CD00BACA7C /* vobj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CBB1D8FF5C500BACA7C /* vobj.cpp */; };
+		A1F13CDA1D9112DD00BACA7C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CC01D8FF62B00BACA7C /* main.cpp */; };
+		A1F13CDF1D9113CE00BACA7C /* vlaunch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1F13CB71D8FF5C500BACA7C /* vlaunch.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A1F13CA51D8FF54F00BACA7C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A1493FD61DA156A6008BDF70 /* vsystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vsystem.cpp; sourceTree = SOURCE_ROOT; };
+		A1493FD71DA156A6008BDF70 /* vsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vsystem.h; sourceTree = SOURCE_ROOT; };
+		A1F13CA71D8FF54F00BACA7C /* com.veertu.vlaunch */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.veertu.vlaunch; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F13CB71D8FF5C500BACA7C /* vlaunch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vlaunch.cpp; sourceTree = SOURCE_ROOT; };
+		A1F13CB81D8FF5C500BACA7C /* vlaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vlaunch.h; sourceTree = SOURCE_ROOT; };
+		A1F13CB91D8FF5C500BACA7C /* vmsg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vmsg.cpp; sourceTree = SOURCE_ROOT; };
+		A1F13CBA1D8FF5C500BACA7C /* vmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmsg.h; sourceTree = SOURCE_ROOT; };
+		A1F13CBB1D8FF5C500BACA7C /* vobj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vobj.cpp; sourceTree = SOURCE_ROOT; };
+		A1F13CBC1D8FF5C500BACA7C /* vobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vobj.h; sourceTree = SOURCE_ROOT; };
+		A1F13CC01D8FF62B00BACA7C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		A1F13CC21D8FF81A00BACA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		A1F13CC31D8FF81A00BACA7C /* Launchd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = SOURCE_ROOT; };
+		A1F13CCA1D90326800BACA7C /* log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = SOURCE_ROOT; };
+		A1F13CCB1D90326800BACA7C /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = SOURCE_ROOT; };
+		A1F13CD11D9112B000BACA7C /* libvlaunch.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvlaunch.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1F13CA41D8FF54F00BACA7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F13CCE1D9112B000BACA7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1F13C9E1D8FF54F00BACA7C = {
+			isa = PBXGroup;
+			children = (
+				A1F13CA91D8FF54F00BACA7C /* vlaunch */,
+				A1F13CDE1D91137D00BACA7C /* Supporting Files */,
+				A1F13CA81D8FF54F00BACA7C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1F13CA81D8FF54F00BACA7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1F13CA71D8FF54F00BACA7C /* com.veertu.vlaunch */,
+				A1F13CD11D9112B000BACA7C /* libvlaunch.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1F13CA91D8FF54F00BACA7C /* vlaunch */ = {
+			isa = PBXGroup;
+			children = (
+				A1493FD61DA156A6008BDF70 /* vsystem.cpp */,
+				A1493FD71DA156A6008BDF70 /* vsystem.h */,
+				A1F13CCA1D90326800BACA7C /* log.cpp */,
+				A1F13CCB1D90326800BACA7C /* log.h */,
+				A1F13CB71D8FF5C500BACA7C /* vlaunch.cpp */,
+				A1F13CB81D8FF5C500BACA7C /* vlaunch.h */,
+				A1F13CB91D8FF5C500BACA7C /* vmsg.cpp */,
+				A1F13CBA1D8FF5C500BACA7C /* vmsg.h */,
+				A1F13CBB1D8FF5C500BACA7C /* vobj.cpp */,
+				A1F13CBC1D8FF5C500BACA7C /* vobj.h */,
+			);
+			name = vlaunch;
+			path = launch;
+			sourceTree = "<group>";
+		};
+		A1F13CDE1D91137D00BACA7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1F13CC21D8FF81A00BACA7C /* Info.plist */,
+				A1F13CC31D8FF81A00BACA7C /* Launchd.plist */,
+				A1F13CC01D8FF62B00BACA7C /* main.cpp */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A1F13CCF1D9112B000BACA7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A1F13CA61D8FF54F00BACA7C /* com.veertu.vlaunch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1F13CAE1D8FF54F00BACA7C /* Build configuration list for PBXNativeTarget "com.veertu.vlaunch" */;
+			buildPhases = (
+				A1F13CA31D8FF54F00BACA7C /* Sources */,
+				A1F13CA41D8FF54F00BACA7C /* Frameworks */,
+				A1F13CA51D8FF54F00BACA7C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.veertu.vlaunch;
+			productName = launch;
+			productReference = A1F13CA71D8FF54F00BACA7C /* com.veertu.vlaunch */;
+			productType = "com.apple.product-type.tool";
+		};
+		A1F13CD01D9112B000BACA7C /* vlaunch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1F13CD21D9112B000BACA7C /* Build configuration list for PBXNativeTarget "vlaunch" */;
+			buildPhases = (
+				A1F13CCD1D9112B000BACA7C /* Sources */,
+				A1F13CCE1D9112B000BACA7C /* Frameworks */,
+				A1F13CCF1D9112B000BACA7C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vlaunch;
+			productName = vlaunch;
+			productReference = A1F13CD11D9112B000BACA7C /* libvlaunch.dylib */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1F13C9F1D8FF54F00BACA7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Veertu;
+				TargetAttributes = {
+					A1F13CA61D8FF54F00BACA7C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A1F13CD01D9112B000BACA7C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A1F13CA21D8FF54F00BACA7C /* Build configuration list for PBXProject "vlaunch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A1F13C9E1D8FF54F00BACA7C;
+			productRefGroup = A1F13CA81D8FF54F00BACA7C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1F13CA61D8FF54F00BACA7C /* com.veertu.vlaunch */,
+				A1F13CD01D9112B000BACA7C /* vlaunch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1F13CA31D8FF54F00BACA7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1493FDF1DA15DEB008BDF70 /* log.cpp in Sources */,
+				A1F13CDA1D9112DD00BACA7C /* main.cpp in Sources */,
+				A1493FE01DA15DF2008BDF70 /* vmsg.cpp in Sources */,
+				A1493FE11DA15DF7008BDF70 /* vobj.cpp in Sources */,
+				A1F13CDF1D9113CE00BACA7C /* vlaunch.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F13CCD1D9112B000BACA7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F13CD51D9112CD00BACA7C /* log.cpp in Sources */,
+				A1F13CD81D9112CD00BACA7C /* vobj.cpp in Sources */,
+				A1F13CD71D9112CD00BACA7C /* vmsg.cpp in Sources */,
+				A1493FDC1DA15BED008BDF70 /* vsystem.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1F13CAC1D8FF54F00BACA7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A1F13CAD1D8FF54F00BACA7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A1F13CAF1D8FF54F00BACA7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					Info.plist,
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					Launchd.plist,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.veertu.vlaunch;
+				PRODUCT_NAME = com.veertu.vlaunch;
+			};
+			name = Debug;
+		};
+		A1F13CB01D8FF54F00BACA7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					Info.plist,
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					Launchd.plist,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.veertu.vlaunch;
+				PRODUCT_NAME = com.veertu.vlaunch;
+			};
+			name = Release;
+		};
+		A1F13CD31D9112B000BACA7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				LD_DYLIB_INSTALL_NAME = "@rpath/libvlaunch.dylib";
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veertu.vlaunch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A1F13CD41D9112B000BACA7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				LD_DYLIB_INSTALL_NAME = "@rpath/libvlaunch.dylib";
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veertu.vlaunch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1F13CA21D8FF54F00BACA7C /* Build configuration list for PBXProject "vlaunch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1F13CAC1D8FF54F00BACA7C /* Debug */,
+				A1F13CAD1D8FF54F00BACA7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1F13CAE1D8FF54F00BACA7C /* Build configuration list for PBXNativeTarget "com.veertu.vlaunch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1F13CAF1D8FF54F00BACA7C /* Debug */,
+				A1F13CB01D8FF54F00BACA7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1F13CD21D9112B000BACA7C /* Build configuration list for PBXNativeTarget "vlaunch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1F13CD31D9112B000BACA7C /* Debug */,
+				A1F13CD41D9112B000BACA7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1F13C9F1D8FF54F00BACA7C /* Project object */;
+}

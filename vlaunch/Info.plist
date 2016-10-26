@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.veertu.vlaunch</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>vlaunch</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>SMAuthorizedClients</key>
+	<array>
+		<string>anchor apple generic and identifier &quot;com.veertu.vmx&quot;</string>
+		<string>anchor apple generic and identifier &quot;com.veertu.Veertu&quot;</string>
+	</array>
+</dict>
+</plist>

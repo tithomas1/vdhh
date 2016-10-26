@@ -1,0 +1,317 @@
+/*
+ *  System (GETCPU) Bus device support code
+ *
+ *  Copyright (c) 2009 CodeSourcery
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "qsysbus.h"
+#include "monitor/monitor.h"
+#include "address-spaces.h"
+
+static void sysbus_dev_print(Monitor *mon, DeviceState *dev, int indent);
+static char *sysbus_get_fw_dev_path(DeviceState *dev);
+
+typedef struct SysBusFind {
+    void *opaque;
+    FindSysbusDeviceFunc *func;
+} SysBusFind;
+
+/* Run func() for every sysbus device, traverse the tree for everything else */
+static int find_sysbus_device(VeertuType *obj, void *opaque)
+{
+    SysBusFind *find = opaque;
+    VeertuType *dev;
+    SysBusDevice *sbdev;
+
+    dev = (VeertuType *)dev;
+    sbdev = (SysBusDevice *)dev;
+
+    if (!sbdev) {
+        /* Container, traverse it for children */
+        return 0;
+    }
+
+    find->func(sbdev, find->opaque);
+
+    return 0;
+}
+
+/*
+ * Loop through all dynamically created sysbus devices and call
+ * func() for each instance.
+ */
+void foreach_dynamic_sysbus_device(FindSysbusDeviceFunc *func, void *opaque)
+{
+}
+
+
+static void system_bus_class_init(VeertuTypeClassHold *klass, void *data)
+{
+    BusClass *k = BUS_CLASS(klass);
+
+    k->print_dev = sysbus_dev_print;
+    k->get_fw_dev_path = sysbus_get_fw_dev_path;
+}
+
+static const VeertuTypeInfo system_bus_info = {
+    .name = TYPE_SYSTEM_BUS,
+    .parent = TYPE_BUS,
+    .instance_size = sizeof(BusState),
+    .class_init = system_bus_class_init,
+};
+
+/* Check whether an IRQ source exists */
+bool sysbus_has_irq(SysBusDevice *dev, int n)
+{
+    return 1;
+}
+
+bool sysbus_is_irq_connected(SysBusDevice *dev, int n)
+{
+    return 1;
+}
+
+/* Check whether an MMIO region exists */
+bool sysbus_has_mmio(SysBusDevice *dev, unsigned int n)
+{
+    return (n < dev->num_mmio);
+}
+
+static void sysbus_mmio_map_common(SysBusDevice *dev, int n, hwaddr addr,
+                                   bool may_overlap, int priority)
+{
+    assert(n >= 0 && n < dev->num_mmio);
+
+    if (dev->mmio[n].addr == addr) {
+        /* ??? region already mapped here.  */
+        return;
+    }
+    if (dev->mmio[n].addr != (hwaddr)-1) {
+        /* Unregister previous mapping.  */
+        mem_are_del_child(get_system_memory(), dev->mmio[n].memory);
+    }
+    dev->mmio[n].addr = addr;
+    if (may_overlap) {
+        mem_area_add_child_overlap(get_system_memory(),
+                                            addr,
+                                            dev->mmio[n].memory,
+                                            priority);
+    }
+    else {
+        mem_area_add_child(get_system_memory(),
+                                    addr,
+                                    dev->mmio[n].memory);
+    }
+}
+
+void sysbus_mmio_map(SysBusDevice *dev, int n, hwaddr addr)
+{
+    sysbus_mmio_map_common(dev, n, addr, false, 0);
+}
+
+void sysbus_mmio_map_overlap(SysBusDevice *dev, int n, hwaddr addr,
+                             int priority)
+{
+    sysbus_mmio_map_common(dev, n, addr, true, priority);
+}
+
+/* Request an IRQ source.  The actual IRQ object may be populated later.  */
+void sysbus_init_irq(SysBusDevice *dev, vmx_irq *p)
+{
+}
+
+/* Pass IRQs from a target device.  */
+void sysbus_pass_irq(SysBusDevice *dev, SysBusDevice *target)
+{
+    //qdev_pass_gpios(DEVICE(target), DEVICE(dev), SYSBUS_DEVICE_GPIO_IRQ);
+}
+
+void sysbus_init_mmio(SysBusDevice *dev, VeertuMemArea *memory)
+{
+    int n;
+
+    assert(dev->num_mmio < QDEV_MAX_MMIO);
+    n = dev->num_mmio++;
+    dev->mmio[n].addr = -1;
+    dev->mmio[n].memory = memory;
+}
+
+VeertuMemArea *sysbus_mmio_get_region(SysBusDevice *dev, int n)
+{
+    return dev->mmio[n].memory;
+}
+
+void sysbus_init_ioports(SysBusDevice *dev, pio_addr_t ioport, pio_addr_t size)
+{
+    pio_addr_t i;
+
+    for (i = 0; i < size; i++) {
+        assert(dev->num_pio < QDEV_MAX_PIO);
+        dev->pio[dev->num_pio++] = ioport++;
+    }
+}
+
+static int sysbus_device_init(DeviceState *dev)
+{
+    SysBusDevice *sd = SYS_BUS_DEVICE(dev);
+    SysBusDeviceClass *sbc = SYS_BUS_DEVICE_GET_CLASS(sd);
+
+    if (!sbc->init) {
+        return 0;
+    }
+    return sbc->init(sd);
+}
+
+DeviceState *sysbus_create_varargs(const char *name,
+                                   hwaddr addr, ...)
+{
+    DeviceState *dev;
+    SysBusDevice *s;
+    va_list va;
+    vmx_irq irq;
+    int n;
+
+    dev = qdev_create(NULL, name);
+    s = SYS_BUS_DEVICE(dev);
+    qdev_init_nofail(dev);
+    if (addr != (hwaddr)-1) {
+        sysbus_mmio_map(s, 0, addr);
+    }
+    va_start(va, addr);
+    n = 0;
+    while (1) {
+        irq = va_arg(va, vmx_irq);
+        if (!irq) {
+            break;
+        }
+        n++;
+    }
+    va_end(va);
+    return dev;
+}
+
+DeviceState *sysbus_try_create_varargs(const char *name,
+                                       hwaddr addr, ...)
+{
+    DeviceState *dev;
+    SysBusDevice *s;
+    va_list va;
+    vmx_irq irq;
+    int n;
+
+    dev = qdev_try_create(NULL, name);
+    if (!dev) {
+        return NULL;
+    }
+    s = SYS_BUS_DEVICE(dev);
+    qdev_init_nofail(dev);
+    if (addr != (hwaddr)-1) {
+        sysbus_mmio_map(s, 0, addr);
+    }
+    va_start(va, addr);
+    n = 0;
+    while (1) {
+        irq = va_arg(va, vmx_irq);
+        if (!irq) {
+            break;
+        }
+        n++;
+    }
+    va_end(va);
+    return dev;
+}
+
+static void sysbus_dev_print(Monitor *mon, DeviceState *dev, int indent)
+{
+    SysBusDevice *s = SYS_BUS_DEVICE(dev);
+    hwaddr size;
+    int i;
+
+    for (i = 0; i < s->num_mmio; i++) {
+        size = mem_area_get_size(s->mmio[i].memory);
+    }
+}
+
+static char *sysbus_get_fw_dev_path(DeviceState *dev)
+{
+    SysBusDevice *s = SYS_BUS_DEVICE(dev);
+    char path[40];
+    int off;
+
+    off = snprintf(path, sizeof(path), "%s", qdev_fw_name(dev));
+
+    if (s->num_mmio) {
+        snprintf(path + off, sizeof(path) - off, "@"TARGET_FMT_plx,
+                 s->mmio[0].addr);
+    } else if (s->num_pio) {
+        snprintf(path + off, sizeof(path) - off, "@i%04x", s->pio[0]);
+    }
+
+    return g_strdup(path);
+}
+
+void sysbus_add_io(SysBusDevice *dev, hwaddr addr,
+                       VeertuMemArea *mem)
+{
+    mem_area_add_child(get_system_io(), addr, mem);
+}
+
+VeertuMemArea *sysbus_address_space(SysBusDevice *dev)
+{
+    return get_system_memory();
+}
+
+static void sysbus_device_class_init(VeertuTypeClassHold *klass, void *data)
+{
+    DeviceClass *k = DEVICE_CLASS(klass);
+    k->init = sysbus_device_init;
+    k->bus_type = TYPE_SYSTEM_BUS;
+}
+
+static const VeertuTypeInfo sysbus_device_type_info = {
+    .name = TYPE_SYS_BUS_DEVICE,
+    .parent = TYPE_DEVICE,
+    .instance_size = sizeof(SysBusDevice),
+    .class_size = sizeof(SysBusDeviceClass),
+    .class_init = sysbus_device_class_init,
+};
+
+/* This is a nasty hack to allow passing a NULL bus to qdev_create.  */
+static BusState *main_system_bus;
+
+static void main_system_bus_create(void)
+{
+    /* assign main_system_bus before qbus_create_inplace()
+     * in order to make "if (bus != sysbus_get_default())" work */
+    main_system_bus = g_malloc0(system_bus_info.instance_size);
+    qbus_create_inplace(main_system_bus, system_bus_info.instance_size,
+                        TYPE_SYSTEM_BUS, NULL, "main-system-bus");
+}
+
+BusState *sysbus_get_default(void)
+{
+    if (!main_system_bus) {
+        main_system_bus_create();
+    }
+    return main_system_bus;
+}
+
+void sysbus_register_types(void)
+{
+    register_type_internal(&system_bus_info);
+    register_type_internal(&sysbus_device_type_info);
+}
+

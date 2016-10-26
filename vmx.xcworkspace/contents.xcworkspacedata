@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:vmx.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:vlaunch/vlaunch.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:libusb/Xcode/libusb.xcodeproj">
+   </FileRef>
+</Workspace>
