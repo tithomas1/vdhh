@@ -217,25 +217,10 @@ static int ide_dev_initfn(IDEDevice *dev, IDEDriveKind kind)
     return 0;
 }
 
-static void ide_dev_get_bootindex(VeertuType *obj, Visitor *v, void *opaque,
-                                  const char *name, Error **errp)
+static void ide_dev_set_bootindex(IDEDevice *d, int32_t boot_index, Error** errp)
 {
-    IDEDevice *d = IDE_DEVICE(obj);
-
-    visit_type_int32(v, &d->conf.bootindex, name, errp);
-}
-
-static void ide_dev_set_bootindex(VeertuType *obj, Visitor *v, void *opaque,
-                                  const char *name, Error **errp)
-{
-    IDEDevice *d = IDE_DEVICE(obj);
-    int32_t boot_index;
     Error *local_err = NULL;
 
-    visit_type_int32(v, &boot_index, name, &local_err);
-    if (local_err) {
-        goto out;
-    }
     /* check whether bootindex is present in fw_boot_order list  */
     check_boot_index(boot_index, &local_err);
     if (local_err) {
@@ -256,6 +241,7 @@ out:
 
 static void ide_dev_instance_init(VeertuType *obj)
 {
+    ide_dev_set_bootindex(IDE_DEVICE(obj), -1, &error_abort);
 }
 
 static int ide_hd_initfn(IDEDevice *dev)
